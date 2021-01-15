@@ -32,6 +32,15 @@ plt.show()
 
 Once this is done, the markers can be printed on a board (or any other support).
 
+![markers](markers.png)
+
 ## How to use
 
 The program comes with some small features such as the possibility to write an output file of the result or the possibility to use the camera of the laptop to detect the markers and patch the homography.
+
+You have to change the number of your marker ids to respect the following order :
+
+**top left, top right, bottom right, bottom left.**
+
+furthermore, some lines of the script can be uncommented to provide a feedback to the user, such as the id number of the markers or their centers...
+
