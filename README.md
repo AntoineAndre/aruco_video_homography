@@ -1,5 +1,7 @@
 # A short script to detect and patch a video on an other
 
+## About
+
 This script is mainly made for educationnal purpose to explain the role of homography and a common application which is the patching of an image in an other one.
 
 ![figureImg](aruco_detect_fridge3.gif)
@@ -44,3 +46,8 @@ You have to change the number of your marker ids to respect the following order 
 
 furthermore, some lines of the script can be uncommented to provide a feedback to the user, such as the id number of the markers or their centers...
 
+# license terms (just in case)
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.

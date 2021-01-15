@@ -73,7 +73,7 @@ while(cap.isOpened() and cap2.isOpened()):
 
             # Find the homography between the detected corners and the video to patch
             M, mask = cv2.findHomography(pts_gauche, pts_droite, cv2.RANSAC,5.0)
-            result = cv2.warpPerspective(frame2, M, (w_img_src, h_img_src))
+            result = cv2.warpPerspective(frame2, M, (w_img_dest, h_img_dest))
             #mask the patched video on the displayed frame
             result2 = cv2.warpPerspective(one_frame_src, M, (w_img_dest, h_img_dest))
             result2 = one_frame_dest - result2
