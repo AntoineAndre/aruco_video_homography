@@ -3,11 +3,12 @@ import cv2
 from cv2 import aruco
 
 # videos that will be displayed
-cap = cv2.VideoCapture('MVI_6739.mp4') # 0 for the webcam input
-cap2 = cv2.VideoCapture('C:/Users/tpean/Downloads/besancon_drone.mp4')
+cap = cv2.VideoCapture('video_input/video_input.mp4') # 0 for the webcam input
+cap2 = cv2.VideoCapture('video_input/video_to_patch.mp4')
 
-fourcc = cv2.VideoWriter_fourcc(*'XVID')
-out = cv2.VideoWriter('output.mp4',fourcc, 20.0, (1920,1080))
+# Uncomment the two lines below to save the result as a mp4 file
+#fourcc = cv2.VideoWriter_fourcc(*'XVID')
+#out = cv2.VideoWriter('output.mp4',fourcc, 20.0, (1920,1080))
 
 # Output image with and height
 w_img_dest = 1920
@@ -56,6 +57,7 @@ while(cap.isOpened() and cap2.isOpened()):
             if ids[i][0] == 10:
                 ids[i][0] = 3
             # put text to display the id number of the markers
+            # This can be used to fine the order of rearangement of ids.
             #cv2.putText(frame, str(ids[i][0]), (int(c[:, 0].mean()) + 10, int(c[:, 1].mean()) + 10), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 3)
 
         # if 4 markers are detected, carry on the homography
@@ -83,7 +85,8 @@ while(cap.isOpened() and cap2.isOpened()):
     #frame = cv2.flip(frame, 1)
     # Display the resulting frame
     
-    out.write(frame)
+    # uncomment the line below to write the ouput video result
+    # out.write(frame)
     cv2.imshow('frame',frame)
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
@@ -91,5 +94,6 @@ while(cap.isOpened() and cap2.isOpened()):
 # When everything done, release the capture
 cap.release()
 cap2.release()
-out.release()
+# uncomment the line below to release the video writer used to record the output
+# out.release()
 cv2.destroyAllWindows()
