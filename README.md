@@ -13,6 +13,8 @@ This kind of patching is offently made seamlessly in softwares such as Adobe pre
 
 _Consider this script as the level 0 of the 3D incrustation_
 
+**Note that the script needs the libraries numpy, openCV and aruco to work correctly.**
+
 ## Markers generation
 
 The ArUco markers can be generated from this short script :
@@ -51,7 +53,8 @@ You have to change the number of your marker ids to respect the following order 
 
 furthermore, some lines of the script can be uncommented to provide a feedback to the user, such as the id number of the markers or their centers...
 
-# license terms (just in case)
+# license terms
+_(just in case)_
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
