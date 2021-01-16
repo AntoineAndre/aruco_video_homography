@@ -60,7 +60,7 @@ The used libraries can be downloaded and installed with the following pip comman
 - pip install numpy
 - pip install opencv-python
 - pip install aruco
-
+- (optionnal : pip install matplotlib)
 
 # license terms
 _(just in case)_
