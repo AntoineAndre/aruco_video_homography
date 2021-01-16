@@ -53,6 +53,15 @@ You have to change the number of your marker ids to respect the following order 
 
 furthermore, some lines of the script can be uncommented to provide a feedback to the user, such as the id number of the markers or their centers...
 
+### 3rd party libraries
+
+The used libraries can be downloaded and installed with the following pip commands:
+
+- pip install numpy
+- pip install opencv-python
+- pip install aruco
+
+
 # license terms
 _(just in case)_
 
