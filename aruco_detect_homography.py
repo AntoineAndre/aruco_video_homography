@@ -1,21 +1,31 @@
 import numpy as np
 import cv2
 from cv2 import aruco
+import sys
+
+filename1 = 0
+filename2 = 'video_input/gif_input.gif'
+
+extension = filename2[len(filename2)-3:len(filename2)]
 
 # videos that will be displayed
-cap = cv2.VideoCapture('video_input/video_input.mp4') # 0 for the webcam input
-cap2 = cv2.VideoCapture('video_input/video_to_patch.mp4')
+cap = cv2.VideoCapture(filename1) # 0 for the webcam input
+cap2 = cv2.VideoCapture(filename2)
 
 # Uncomment the two lines below to save the result as a mp4 file
 #fourcc = cv2.VideoWriter_fourcc(*'XVID')
 #out = cv2.VideoWriter('output.mp4',fourcc, 20.0, (1920,1080))
 
-# Output image with and height
-w_img_dest = 1920
-h_img_dest = 1080
 
-w_img_src = 1920
-h_img_src = 1080
+ret1, frame = cap.read()
+ret2, frame2 = cap2.read()
+
+# Output image with and height
+w_img_dest = frame.shape[1]
+h_img_dest = frame.shape[0]
+
+w_img_src = frame2.shape[1]
+h_img_src = frame2.shape[0]
 
 # Define the homography matching parameters
 pts_gauche = np.array([[0, 0, 1], [w_img_src, 0, 1], [w_img_src, h_img_src, 1], [0, h_img_src, 1]], dtype='float')
@@ -29,13 +39,19 @@ one_frame_dest = 255*np.ones((h_img_dest, w_img_dest, 3), dtype=np.uint8)
 aruco_dict = aruco.Dictionary_get(aruco.DICT_6X6_250)
 parameters =  aruco.DetectorParameters_create()
 
-while(cap.isOpened() and cap2.isOpened()):
+while(1):
     # Capture frame-by-frame
     ret1, frame = cap.read()
     ret2, frame2 = cap2.read()
 
     if not(ret1) or not(ret2):
-        break 
+        if extension != 'gif':
+            break
+        else:
+            cap2.release()
+            cap2 = cv2.VideoCapture(filename2)
+            ret2, frame2 = cap2.read()
+
 
     # Our operations on the frame come here. Aruco detects only on gray frames
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
@@ -48,13 +64,13 @@ while(cap.isOpened() and cap2.isOpened()):
             cv2.circle(frame,(c[:, 0].mean(), c[:, 1].mean()), 5, (255, 0, 0), -1) #quick check draws circles at the center of the markers
             # markers id must be arranged in an anti trigonometric way (top left, top right, bottom right, bottom left)
             #(too lazy to implement a faster way of rearanging the marker numbers)
-            if ids[i][0] == 4:
+            if ids[i][0] == 8:
                 ids[i][0] = 0
-            if ids[i][0] == 6:
+            if ids[i][0] == 7:
                 ids[i][0] = 1
-            if ids[i][0] == 3:
+            if ids[i][0] == 11:
                 ids[i][0] = 2
-            if ids[i][0] == 10:
+            if ids[i][0] == 12:
                 ids[i][0] = 3
             # put text to display the id number of the markers
             # This can be used to fine the order of rearangement of ids.
