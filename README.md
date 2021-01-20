@@ -4,14 +4,14 @@
 
 ## About
 
-This script is mainly made for educationnal purpose to explain the role of homography and a common application which is the patching of an image in an other one.
+This script is mainly made for educationnal purposes to explain the role of homography and its omnipresent place in commonly used image processing softwares.
 
 
 ![figureImg](aruco_detect_fridge3.gif)
 
-This kind of patching is offently made seamlessly in softwares such as Adobe premiere or Adboe After Effects, but these ones relies on subfunctions calls to the openCV library. The goal of this repository is to present how heavy software uses the patching method with a more pratical view which is the detection of corners (made with arUco markers) and the patching with an homography.
+This kind of patching is offently made seamlessly in softwares such as Adobe premiere or Adboe After Effects and these ones relie on subfunction calls to the openCV library. The goal of this repository is to present how heavy softwares use the patching method with a more pratical view which is the detection of corners (made with arUco markers) and the incrustation with an homography.
 
-_Consider this script as the level 0 of the 3D incrustation_
+_Consider this script as the level 0 of the 3D incrustation and image processing_
 
 **Note that the script needs the libraries numpy, openCV and aruco to work correctly.**
 
