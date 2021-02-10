@@ -16,7 +16,6 @@ cap2 = cv2.VideoCapture(filename2)
 #fourcc = cv2.VideoWriter_fourcc(*'XVID')
 #out = cv2.VideoWriter('output.mp4',fourcc, 20.0, (1920,1080))
 
-
 ret1, frame = cap.read()
 ret2, frame2 = cap2.read()
 
